@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<bean id="defaultConfigProperty" class="org.fisco.bcos.sdk.config.model.ConfigProperty">
+		<property name="cryptoMaterial">
+			<map>
+			<entry key="certPath" value="conf" />
+			<!-- SSL certificate configuration -->
+			<!-- entry key="caCert" value="conf/ca.crt" /-->
+			<!-- entry key="sslCert" value="conf/sdk.crt" /-->
+			<!-- entry key="sslKey" value="conf/sdk.key" /-->
+			<!-- GM SSL certificate configuration -->
+			<!-- entry key="caCert" value="conf/gm/gmca.crt" /-->
+			<!-- entry key="sslCert" value="conf/gm/gmsdk.crt" /-->
+			<!-- entry key="sslKey" value="conf/gm/gmsdk.key" /-->
+			<!--entry key="enSslCert" value="conf/gm/gmensdk.crt" /-->
+			<!--entry key="enSslKey" value="conf/gm/gmensdk.key" /-->
+			</map>
+		</property>
+		<property name="network">
+			<map>
+				<entry key="peers">
+					<list>
+						<value>127.0.0.1:20200</value>
+						<value>127.0.0.1:20201</value>
+					</list>
+				</entry>
+			</map>
+		</property>
+		<!--
+		<property name="amop">
+			<list>
+				<bean id="amopTopic1" class="org.fisco.bcos.sdk.config.model.AmopTopic">
+					<property name="topicName" value="PrivateTopic1" />
+					<property name="password" value="" />
+					<property name="privateKey" value="" />
+					<property name="publicKeys">
+						<list>
+							<value>conf/amop/consumer_public_key_1.pem</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+		-->
+		<property name="account">
+			<map>
+				<entry key="keyStoreDir" value="account" />
+				<entry key="accountAddress" value="" />
+				<entry key="accountFileFormat" value="pem" />
+				<entry key="password" value="" />
+				<entry key="accountFilePath" value="" />
+			</map>
+		</property>
+		<property name="threadPool">
+			<map>
+			<entry key="channelProcessorThreadSize" value="16" />
+			<entry key="receiptProcessorThreadSize" value="16" />
+			<entry key="maxBlockingQueueSize" value="102400" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="defaultConfigOption" class="org.fisco.bcos.sdk.config.ConfigOption">
+		<constructor-arg name="configProperty">
+				<ref bean="defaultConfigProperty"/>
+		</constructor-arg>
+	</bean>
+
+	<bean id="bcosSDK" class="org.fisco.bcos.sdk.BcosSDK">
+		<constructor-arg name="configOption">
+			<ref bean="defaultConfigOption"/>
+		</constructor-arg>
+	</bean>
+</beans>
+
