@@ -4,4 +4,4 @@
 
 人工智能实验期中项目：CNN&RNN实现，详见链接：[CNN&RNN Python](https://github.com/SleepingMonster/CNN-RNN_Python)
 
-人工智能实验期末项目：黑白棋实现，详见链接：[黑白棋 Python](
+人工智能实验期末项目：黑白棋实现，详见链接：[黑白棋 Python](https://github.com/SleepingMonster/Othello_Python)
