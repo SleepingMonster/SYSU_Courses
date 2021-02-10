@@ -1,0 +1,3 @@
+﻿  源.cpp
+c1xx : warning C4199: C++/CLI、C++/CX 或 OpenMP 不支持两阶段名称查找；请使用 /Zc:twoPhase-
+  Matrix_Multi.vcxproj -> D:\College\并行与分布式计算\Homework\homework4\Matrix_Multi\Debug\Matrix_Multi.exe
